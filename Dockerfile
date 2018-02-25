@@ -45,4 +45,10 @@ RUN composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress
 
 WORKDIR /srv/symfony
 
+RUN mkdir -p \
+		var/cache \
+		var/logs \
+		var/sessions \
+	&& chown -R www-data var
+
 CMD ["php-fpm"]
